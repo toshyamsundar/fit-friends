@@ -3,15 +3,16 @@ module.exports = function(sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    metric: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   });
 
   Activity.associate = function(models) {
     Activity.belongsTo(models.User, {
+      foreign_key: {
+        allowNull: false
+      }
+    });
+    Activity.belongsTo(models.Metric, {
       foreign_key: {
         allowNull: false
       }
