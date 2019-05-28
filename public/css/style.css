@@ -13,8 +13,8 @@ html {
   background-image: url("../images/MAIN.jpg");
 
   /* Control the height of the image */
-  min-height: 100% !important;
-  min-width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
 
   /* Center and scale the image nicely */
   background-position: center;
