@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "jedcheng",
+    "password": "root",
     "database": "fitfriends_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,10 +14,6 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "aulv90ra7q03y23o",
-    "database": "database_production",
-    "host": "127.0.0.1",
     "dialect": "mysql",
     "use_env_variable": "JAWSDB_URL"
   }
