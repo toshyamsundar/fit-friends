@@ -14,4 +14,24 @@ module.exports = function (app) {
             });
     });
 
+    //enter goal
+    app.post("/api/goals", function (req, res) {
+        db.Goal.create(req.body).then(function (dbGoal) {
+            res.json(dbGoal);
+        });
+    });
+
+    //updates goal
+    app.put("/api/goals", function (req, res) {
+        db.Goal.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function (dbGoal) {
+                res.json(dbGoal);
+            });
+    });
+
 }
