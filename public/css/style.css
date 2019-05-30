@@ -7,6 +7,9 @@ html {
 * {
   box-sizing: border-box;
 }
+label {
+  color: #555;
+}
 
 .bg-img {
   background-image: url("../images/MAIN.jpg");
