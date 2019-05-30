@@ -25,22 +25,13 @@ html {
   background-image: url("../images/jumbotron.jpg");
 }
 
-.container1 {
-  margin: 40px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+.container-fluid {
+  padding: 0;
 }
+
 .card {
   border: 1px solid #d3d3d3;
   border-radius: 0.25rem;
-}
-
-.bg-img {
-  background-size: cover;
-  min-height: 180px;
-  background-position: center;
-  background-color: #ccc;
 }
 
 .content {
