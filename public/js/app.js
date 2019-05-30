@@ -1,7 +1,7 @@
 $(document).on("click", "#btn-create", event => {
   let userProfile = {};
 
-  let userGoal = {};
+  let userGoal = [];
 
   userProfile.username = $("#username").val();
   userProfile.name = $("#fullname").val();
@@ -9,9 +9,20 @@ $(document).on("click", "#btn-create", event => {
   userProfile.height = $("#user-height").val();
   userProfile.weight = $("#user-weight").val();
 
-  console.log(userProfile);
+  $.post("/api/user", userProfile).then(userResponse => {
+    $("#goal-section")
+      .children(".form-group")
+      .each(function() {
+        let goalName = $(this).attr("data-goal");
+        let goalMetric = $(this)
+          .children(".form-control")
+          .val();
+        let user = userResponse.id;
+        userGoal.push({ name: goalName, metric: goalMetric, UserId: user });
+      });
 
-  $.post("/api/user", userProfile).then(response => {
-    console.log(response);
+    $.post("/api/goals", { userGoal }).then(goalResponse => {
+      console.log(goalResponse);
+    });
   });
 });

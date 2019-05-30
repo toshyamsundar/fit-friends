@@ -14,8 +14,8 @@ module.exports = function(app) {
 
   app.post("/api/user", (req, res) => {
     console.log("Inside User post");
-    db.User.create(req.body).then(response => {
-      res.json(response);
+    db.User.create(req.body).then(results => {
+      res.json(results);
     });
   });
 
@@ -28,8 +28,9 @@ module.exports = function(app) {
 
   //enter goal
   app.post("/api/goals", function(req, res) {
-    db.Goal.create(req.body).then(function(dbGoal) {
-      res.json(dbGoal);
+    console.log(req.body.userGoal);
+    db.Goal.bulkCreate(req.body.userGoal).then(function(results) {
+      res.json(results);
     });
   });
 
