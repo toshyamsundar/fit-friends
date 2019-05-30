@@ -1,46 +1,52 @@
 var db = require("../models");
 
-module.exports = function (app) {
-
-    //displays a specific user's profile data
-    app.get("/api/user/:user", function (req, res) {
-        db.User.findOne({
-            where: {
-                name: req.params.user
-            }
-        })
-            .then(function (dbUser) {
-                res.json(dbUser)
-            });
+module.exports = function(app) {
+  //displays a specific user's profile data
+  app.get("/api/user/:user", function(req, res) {
+    db.User.findOne({
+      where: {
+        name: req.params.user
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
     });
+  });
 
-    //display goals
-    app.get("/api/goals", function (req, res) {
-        db.Goal.findAll({}).then(function (dbGoal) {
-            res.json(dbGoal)
-        });
+  app.post("/api/user", (req, res) => {
+    console.log("Inside User post");
+    db.User.create(req.body).then(results => {
+      res.json(results);
     });
+  });
 
-    //enter goal
-    app.post("/api/goals", function (req, res) {
-        db.Goal.create(req.body).then(function (dbGoal) {
-            res.json(dbGoal);
-        });
+  //display goals
+  app.get("/api/goals", function(req, res) {
+    db.Goal.findAll({}).then(function(dbGoal) {
+      res.json(dbGoal);
     });
+  });
 
-    //display activity values(metrics)
-    app.get("/api/activities", function (req, res) {
-        db.Activity.findAll({
-            attributes: ['metric']
-        }).then(function (dbActivity) {
-            res.json(dbActivity)
-        });
+  //enter goal
+  app.post("/api/goals", function(req, res) {
+    console.log(req.body.userGoal);
+    db.Goal.bulkCreate(req.body.userGoal).then(function(results) {
+      res.json(results);
     });
+  });
 
-    //activity values
-    app.post("/api/activities", function (req, res) {
-        db.Activity.create(req.body).then(function (dbActivity) {
-            res.json(dbActivity);
-        });
+  //display activity values(metrics)
+  app.get("/api/activities", function(req, res) {
+    db.Activity.findAll({
+      attributes: ["metric"]
+    }).then(function(dbActivity) {
+      res.json(dbActivity);
     });
-}
+  });
+
+  //activity values
+  app.post("/api/activities", function(req, res) {
+    db.Activity.create(req.body).then(function(dbActivity) {
+      res.json(dbActivity);
+    });
+  });
+};
