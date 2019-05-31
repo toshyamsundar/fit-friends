@@ -28,4 +28,45 @@ $(document).ready(() => {
       });
     });
   });
+
+  $(document).on("click", "#btn-save-activity", event => {
+    let userActivity = [];
+
+    userActivity.push({
+      name: $("#activity-yoga").attr("data-activity"),
+      metric: $("#activity-yoga").val(),
+      UserId: sessionStorage.getItem("userId")
+    });
+    userActivity.push({
+      name: $("#activity-weights").attr("data-activity"),
+      metric: $("#activity-weights").val(),
+      UserId: sessionStorage.getItem("userId")
+    });
+    userActivity.push({
+      name: $("#activity-cardio").attr("data-activity"),
+      metric: $("#activity-cardio").val(),
+      UserId: sessionStorage.getItem("userId")
+    });
+    userActivity.push({
+      name: $("#activity-water").attr("data-activity"),
+      metric: $("#activity-water").val(),
+      UserId: sessionStorage.getItem("userId")
+    });
+    userActivity.push({
+      name: $("#activity-calories").attr("data-activity"),
+      metric: $("#activity-calories").val(),
+      UserId: sessionStorage.getItem("userId")
+    });
+    userActivity.push({
+      name: $("#activity-sleep").attr("data-activity"),
+      metric: $("#activity-sleep").val(),
+      UserId: sessionStorage.getItem("userId")
+    });
+
+    console.log(userActivity);
+
+    $.post("/api/activities", { userActivity }).then(activityResponse => {
+      console.log(activityResponse);
+    });
+  });
 });

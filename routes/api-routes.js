@@ -45,8 +45,8 @@ module.exports = function(app) {
 
   //activity values
   app.post("/api/activities", function(req, res) {
-    db.Activity.create(req.body).then(function(dbActivity) {
-      res.json(dbActivity);
+    db.Activity.bulkCreate(req.body.userActivity).then(function(results) {
+      res.json(results);
     });
   });
 };
