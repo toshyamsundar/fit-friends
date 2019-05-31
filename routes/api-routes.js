@@ -54,6 +54,7 @@ module.exports = function (app) {
         });
     });
 
+    //chart.js data
     app.get("/api/tracker/:id", function (req, res) {
         db.Activity.findAll({
             where: {
