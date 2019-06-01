@@ -33,35 +33,37 @@ $(document).ready(() => {
   $(document).on("click", "#btn-save-activity", event => {
     let userActivity = [];
 
+    let userId = JSON.parse(sessionStorage.getItem("userProfile")).id;
+
     userActivity.push({
       name: $("#activity-yoga").attr("data-activity"),
       metric: $("#activity-yoga").val(),
-      UserId: sessionStorage.getItem("userId")
+      UserId: userId
     });
     userActivity.push({
       name: $("#activity-weights").attr("data-activity"),
       metric: $("#activity-weights").val(),
-      UserId: sessionStorage.getItem("userId")
+      UserId: userId
     });
     userActivity.push({
       name: $("#activity-cardio").attr("data-activity"),
       metric: $("#activity-cardio").val(),
-      UserId: sessionStorage.getItem("userId")
+      UserId: userId
     });
     userActivity.push({
       name: $("#activity-water").attr("data-activity"),
       metric: $("#activity-water").val(),
-      UserId: sessionStorage.getItem("userId")
+      UserId: userId
     });
     userActivity.push({
       name: $("#activity-calories").attr("data-activity"),
       metric: $("#activity-calories").val(),
-      UserId: sessionStorage.getItem("userId")
+      UserId: userId
     });
     userActivity.push({
       name: $("#activity-sleep").attr("data-activity"),
       metric: $("#activity-sleep").val(),
-      UserId: sessionStorage.getItem("userId")
+      UserId: userId
     });
 
     console.log(userActivity);
@@ -77,16 +79,22 @@ $(document).ready(() => {
       console.log(userResponse);
 
       if (userResponse !== null) {
-        sessionStorage.setItem("userProfile", userResponse);
+        sessionStorage.setItem("userProfile", JSON.stringify(userResponse));
       }
       window.location.replace("/profile");
     });
   });
 
   let showUserProfileSection = () => {
-    if (sessionStorage.getItem("userProfile") !== null) {
+    let userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
+    if (userProfile !== null) {
       $("#current-profile").show();
       $("#new-profile").hide();
+      $("#current-username").text(userProfile.username);
+      $("#current-name").text(userProfile.name);
+      $("#current-age").text(userProfile.age);
+      $("#current-height").text(userProfile.height);
+      $("#current-weight").text(userProfile.weight);
     } else {
       $("#new-profile").show();
       $("#current-profile").hide();
