@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/api/user/:user", function(req, res) {
     db.User.findOne({
       where: {
-        name: req.params.user
+        username: req.params.user
       }
     }).then(function(dbUser) {
       res.json(dbUser);

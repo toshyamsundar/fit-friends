@@ -75,7 +75,8 @@ label {
   background-position: center center;
 }
 
-#carousel-3 {
+#carousel-3,
+#current-profile {
   background-image: url("../images/hero_bg_3.jpg");
 }
 

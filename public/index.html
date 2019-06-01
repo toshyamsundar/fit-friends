@@ -9,11 +9,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -42,19 +38,16 @@
               <h2>Help Your Friends Into Fitness</h2>
               <form>
                 <div class="form-group">
-                  <label for="exampleInputEmail1" class="text-secondary">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
-                  />
+                  <!-- <label for="user-email" class="text-secondary">Email address</label> -->
+                  <input type="email" class="form-control mt-4" id="user-email" placeholder="Enter your email" />
                   <small id="emailHelp" class="form-text text-muted"
                     >We'll never share your email with anyone else.</small
                   >
                 </div>
-                <a href="/profile" class="btn btn-primary active" role="button" id="btn-getStarted">Get Started</a>
+                <button type="button" class="btn btn-primary mt-2 mb-4 float-left" id="btn-getStarted">
+                  Get Started
+                </button>
+                <!-- <a href="/profile" class="btn btn-primary active" role="button" id="btn-getStarted">Get Started</a> -->
               </form>
             </div>
           </div>

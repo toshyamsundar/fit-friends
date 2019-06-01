@@ -24,7 +24,8 @@ $(document).ready(() => {
 
       $.post("/api/goals", { userGoal }).then(goalResponse => {
         console.log(goalResponse);
-        sessionStorage.setItem("userId", user);
+        sessionStorage.setItem("userProfile", userResponse);
+        window.location.replace("/profile");
       });
     });
   });
@@ -68,5 +69,33 @@ $(document).ready(() => {
     $.post("/api/activities", { userActivity }).then(activityResponse => {
       console.log(activityResponse);
     });
+  });
+
+  $(document).on("click", "#btn-getStarted", event => {
+    let userEmail = $("#user-email").val();
+    $.get("/api/user/" + userEmail).then(userResponse => {
+      console.log(userResponse);
+
+      if (userResponse !== null) {
+        sessionStorage.setItem("userProfile", userResponse);
+      }
+      window.location.replace("/profile");
+    });
+  });
+
+  let showUserProfileSection = () => {
+    if (sessionStorage.getItem("userProfile") !== null) {
+      $("#current-profile").show();
+      $("#new-profile").hide();
+    } else {
+      $("#new-profile").show();
+      $("#current-profile").hide();
+    }
+  };
+
+  $(window).on("load", event => {
+    if (window.location.href.match("profile") !== null) {
+      showUserProfileSection();
+    }
   });
 });
