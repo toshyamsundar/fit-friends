@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Fit-Friends</title>
-    <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,19 +24,17 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/app.js"></script>
   </head>
   <body>
     <!--JUMBOTRON-->
-    <div class="jumbotron">
+    <div class="jumbotron mb-0">
       <h1 class="display-4">Fit-Friends</h1>
-      <p class="lead"></p>
-      <hr class="my-4" />
     </div>
-
     <!--CONTACT INFORMATION-->
     <div class="bg-img">
-      <div class="row">
+      <div class="row pt-5">
         <div class="col-sm"></div>
         <div class="col-sm">
           <div class="card">
@@ -45,7 +42,7 @@
               <h1>Help Your Friends Into Fitness</h1>
               <form>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="exampleInputEmail1" class="text-secondary">Email address</label>
                   <input
                     type="email"
                     class="form-control"
@@ -57,10 +54,7 @@
                     >We'll never share your email with anyone else.</small
                   >
                 </div>
-
-                <a href="./profile.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
-                  >Create Your Profile</a
-                >
+                <a href="/profile" class="btn btn-primary active" role="button" id="btn-getStarted">Get Started</a>
               </form>
             </div>
           </div>
