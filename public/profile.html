@@ -31,8 +31,8 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/profile">Your Profile</a>
@@ -44,12 +44,12 @@
             <a class="nav-link" href="/friends">Find Your Friends</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/comparison">Compare Your Results</a>
+            <a class="nav-link" href="/comparison">Track Your Progress</a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="conatiner-fluid p-0">
+    <div class="conatiner-fluid p-0" style="display: none" id="new-profile">
       <header>
         <div id="carouselExampleIndicators" class="carousel slide mx-0" data-ride="carousel" data-interval="false">
           <!-- <ol class="carousel-indicators mx-0">
@@ -131,6 +131,45 @@
           </a>
         </div>
       </header>
+    </div>
+    <div class="container-fluid p-0 pt-5" style="display: none" id="current-profile">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header bg-light text-primary">
+              Your Profile
+            </div>
+            <div class="card-body">
+              <p>Username: <span id="current-username"></span></p>
+              <p>Full Name: <span id="current-name"></span></p>
+              <p>Age: <span id="current-age"></span></p>
+              <p>Height: <span id="current-height"></span></p>
+              <p>Weight: <span id="current-weight"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header bg-light text-primary">
+              Your Goals
+            </div>
+            <div class="card-body">
+              <p>Yoga: <span id="current-yoga"></span></p>
+              <p>Weights: <span id="current-weights"></span></p>
+              <p>Cardio: <span id="current-cardio"></span></p>
+              <p>Water Intake: <span id="current-water"></span></p>
+              <p>Calorie Intake: <span id="current-calorie"></span></p>
+              <p>Sleep: <span id="current-sleep"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
     </div>
   </body>
 </html>
