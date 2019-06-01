@@ -3,12 +3,15 @@ html {
   height: 100vh;
   width: 100vw;
 }
-
+/* 
 * {
   box-sizing: border-box;
-}
+} */
+
 label {
-  color: #555;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 120%;
 }
 
 .bg-img {
@@ -22,6 +25,7 @@ label {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .bg-img1 {
   background-image: url("../images/MAIN.jpg");
 
@@ -33,26 +37,56 @@ label {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .jumbotron {
   height: 1rem;
   background-image: url("../images/jumbotron.jpg");
 }
-.container {
+
+/* .container {
   margin: 1rem;
-}
-.container1 {
+} */
+
+/* .container1 {
   margin: 20px;
   padding: 20px;
   display: flex;
   justify-content: center;
-}
+} */
 
 .card {
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
+  opacity: 0.3;
 }
+
 .carousel-caption {
-  top: 5rem;
+  top: 0.5rem;
   bottom: auto;
+}
+
+#carousel-1 {
+  background-image: url("../images/CALORIES.jpg");
+}
+
+#carousel-2 {
+  /* background-image: url("../images/CARDIO.jpg"); */
+  background-image: url("../images/hero_bg_3.jpg");
+  background-position: center center;
+}
+
+#carousel-3 {
+  background-image: url("../images/hero_bg_3.jpg");
+}
+
+.carousel-item {
+  height: 100vh;
+  width: 100vw;
+  background: no-repeat center center scroll;
+  background-size: cover;
+}
+
+.form-group {
+  text-align: left;
 }
