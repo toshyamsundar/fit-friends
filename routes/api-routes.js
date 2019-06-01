@@ -10,63 +10,64 @@ module.exports = function(app) {
     }).then(function(dbUser) {
       res.json(dbUser);
     });
+  });
 
-    app.post("/api/user", (req, res) => {
-        console.log("Inside User post");
-        db.User.create(req.body).then(results => {
-            res.json(results);
-        });
+  app.post("/api/user", (req, res) => {
+    console.log("Inside User post");
+    db.User.create(req.body).then(results => {
+      res.json(results);
     });
+  });
 
-    //display goals
-    app.get("/api/goals", function (req, res) {
-        db.Goal.findAll({}).then(function (dbGoal) {
-            res.json(dbGoal);
-        });
+  //display goals
+  app.get("/api/goals", function(req, res) {
+    db.Goal.findAll({}).then(function(dbGoal) {
+      res.json(dbGoal);
     });
+  });
 
-    //enter goal
-    app.post("/api/goals", function (req, res) {
-        console.log(req.body.userGoal);
-        db.Goal.bulkCreate(req.body.userGoal).then(function (results) {
-            res.json(results);
-        });
+  //enter goal
+  app.post("/api/goals", function(req, res) {
+    console.log(req.body.userGoal);
+    db.Goal.bulkCreate(req.body.userGoal).then(function(results) {
+      res.json(results);
     });
+  });
 
-    //display activity values(metrics)
-    app.get("/api/activities", function (req, res) {
-        db.Activity.findAll({
-            attributes: ["metric"]
-        }).then(function (dbActivity) {
-            res.json(dbActivity);
-        });
+  //display activity values(metrics)
+  app.get("/api/activities", function(req, res) {
+    db.Activity.findAll({
+      attributes: ["metric"]
+    }).then(function(dbActivity) {
+      res.json(dbActivity);
     });
+  });
 
-    //activity values
-    app.post("/api/activities", function (req, res) {
-        db.Activity.bulkCreate(req.body.userActivity).then(function (results) {
-            res.json(results);
-        });
+  //activity values
+  app.post("/api/activities", function(req, res) {
+    db.Activity.bulkCreate(req.body.userActivity).then(function(results) {
+      res.json(results);
     });
+  });
 
-    //chart.js data
-    app.get("/api/tracker/:id", function (req, res) {
-        db.Activity.findAll({
-            where: {
-                UserID: req.params.id
-            }
-        }).then(function (activities) {
-            db.Goal.findAll({
-                where: {
-                    UserID: req.params.id
-                }
-            }).then(function (goals) {
-                var data = {
-                    userActivity: activities,
-                    userGoal: goals
-                }
-                res.json(data)
-            });
-        });
+  //chart.js data
+  app.get("/api/tracker/:id", function(req, res) {
+    db.Activity.findAll({
+      where: {
+        UserID: req.params.id
+      }
+    }).then(function(activities) {
+      db.Goal.findAll({
+        where: {
+          UserID: req.params.id
+        }
+      }).then(function(goals) {
+        var data = {
+          userActivity: activities,
+          userGoal: goals
+        };
+        res.json(data);
+      });
     });
+  });
 };
